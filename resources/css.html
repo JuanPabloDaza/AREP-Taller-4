@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página de Presentación</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  h1 {
+    color: #555;
+  }
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bienvenido a mi página personal</h1>
+    <p>¡Hola! Soy Juan Pablo Daza, y esta es mi página de presentación.</p>
+    <p>Puedes contactarme en: <a href="mailto:juan.daza-pi@mail.escuelaing.edu.co">juan.daza-pi@mail.escuelaing.edu.co</a></p>
+    <p><button id="redirectButton">Redireccionar al inicio</button></p>
+  </div>
+  <script>
+        document.getElementById("redirectButton").addEventListener("click", function() {
+            window.location.href = "index.html";
+            setTimeout(function() {
+                    location.reload();
+                }, 100);
+        });
+    </script>
+</body>
+</html>

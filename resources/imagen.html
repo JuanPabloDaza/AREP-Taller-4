@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirection Example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Pagina de la imagen del Servidor Web</h1>
+    <p>Presiona el botón para redireccionar a la Pagina de inicio</p>
+    
+    <button id="redirectButton">Redireccionar al inicio</button>
+    <br>
+    <img src="Astroneer.jpg" alt="Mi Imagen">
+
+    <script>
+        document.getElementById("redirectButton").addEventListener("click", function() {
+            window.location.href = "index.html";
+            setTimeout(function() {
+                    location.reload();
+                }, 100);
+        });
+    </script>
+</body>
+</html>

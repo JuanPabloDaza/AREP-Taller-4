@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirection Example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Inicio Servidor Web</h1>
+    <p>Ingresa el nombre del archivo sin usar extensiones y presiona el botón para redireccionar.</p>
+    
+    <input type="text" id="filenameInput" placeholder="Nombre de archivo">
+    <button id="redirectButton">Redireccionar</button>
+
+
+    <form id="cuadrado" action="#">
+        <p>Servicio para hallar el cuadrado:</p>
+        <label for="numero">Ingresa el número:</label>
+        <input type="number" id="numero" name="numero">
+        <br>
+        <input type="button" value="Submit" onclick="cuadrado(numero)">
+        <div id="cuadradores"></div>
+    </form>
+
+    <form id="hello" action="#">
+        <p>Servicio para saludar</p>
+        <label for="nombre">Ingrese el nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+        <br>
+        <input type="button" value="Submit" onclick="hola(nombre)">
+        <div id="saludo"></div>
+    </form>
+
+    <form id="ServicioPOJO" action="#">
+        <h2>Servicio POJO</h2>
+        <label for="POJO">Ingrese el mapeo del servicio</label>
+        <input type="text" id="POJOservice" name="path">
+        <br>
+        <input type="button" value="Submit" onclick="POJO(POJOservice)">
+        <div id="respuestaPOJO"></div>
+    </form>
+
+    <script>
+        document.getElementById("redirectButton").addEventListener("click", function() {
+            var filename = document.getElementById("filenameInput").value;
+            if (filename) {
+                window.location.href = filename;
+                setTimeout(function() {
+                    location.reload();
+                }, 100);
+            } else {
+                alert("Por favor ingresa un nombre de archivo.");
+            }
+        });
+        function cuadrado(name){
+            let url = "/cuadrado?=" + name.value;
+            fetch (url, {method: 'POST'})
+            .then(x => x.text())
+            .then(y => document.getElementById("cuadradores").innerHTML = y);
+            }
+        function hola(name){
+            let url = "/hello?=" + name.value;
+            fetch (url, {method: 'POST'})
+            .then(x => x.text())
+            .then(y => document.getElementById("saludo").innerHTML = y);
+        }
+        function POJO(POJO){
+            let url = POJO.value;
+            fetch (url, {method: 'POST'})
+            .then(x => x.text())
+            .then(y => document.getElementById("respuestaPOJO").innerHTML = y);
+        }
+    </script>
+</body>
+</html>
